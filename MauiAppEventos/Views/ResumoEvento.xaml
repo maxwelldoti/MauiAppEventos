@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppEventos.Views.ResumoEvento"
+             NavigationPage.HasNavigationBar="True"
+             BackgroundColor="{StaticResource Gray100}">
+
+    <VerticalStackLayout Padding="10">
+        <Label Text="RESUMO DO EVENTO" FontSize="32" VerticalOptions="Center" HorizontalOptions="Center" TextColor="{StaticResource Primary}" />
+
+        <Label Text="Nome do Evento:" FontSize="20" />
+        <Label Text="{Binding Nome}" FontSize="18" />
+
+        <Label Text="Local do Evento:" FontSize="20" />
+        <Label Text="{Binding Local}" FontSize="18" />
+
+        <Label Text="Data de Início:" FontSize="20" />
+        <Label Text="{Binding DataInicio, StringFormat='{0:dd/MM/yyyy}'}" FontSize="18" />
+
+        <Label Text="Data de Término:" FontSize="20" />
+        <Label Text="{Binding DataFim, StringFormat='{0:dd/MM/yyyy}'}" FontSize="18" />
+
+        <Label Text="Número de Participantes:" FontSize="20" />
+        <Label Text="{Binding NumeroParticipantes}" FontSize="18" />
+
+        <Label Text="Custo por Participante (R$):" FontSize="20" />
+        <Label Text="{Binding CustoParticipante, StringFormat='{0:C2}'}" FontSize="18" />
+
+        <Label Text="Duração do Evento (dias):" FontSize="20" />
+        <Label Text="{Binding Duracao}" FontSize="18" />
+
+        <Label Text="Custo Total (R$):" FontSize="20" />
+        <Label Text="{Binding CustoTotal, StringFormat='{0:C2}'}" FontSize="18" />
+    </VerticalStackLayout>
+
+</ContentPage>

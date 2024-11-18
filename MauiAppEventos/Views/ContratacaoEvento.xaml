@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppEventos.Views.ContratacaoEvento"
+             Title="ContratacaoEvento"
+             NavigationPage.HasNavigationBar="False"
+             Background="{StaticResource Gray100}">
+
+    <VerticalStackLayout VerticalOptions="CenterAndExpand"
+                         Padding="10">
+        <Label Text="CADASTRO DE EVENTOS"
+               FontSize="32"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               TextColor="{StaticResource Primary}"/>
+
+        <Frame Padding="10">
+            <Entry Placeholder="Nome do Evento"
+                   HorizontalOptions="FillAndExpand"
+                   Text="{Binding Nome}" />
+        </Frame>
+
+        <Frame Padding="10">
+            <Entry Placeholder="Local do Evento"
+                   HorizontalOptions="FillAndExpand"
+                   Text="{Binding Local}" />
+        </Frame>
+
+        <Frame Padding="10">
+            <Entry x:Name="entryCustoParticipante" 
+                   Placeholder="Custo por Participante (R$)"
+                   Keyboard="Numeric"
+                   HorizontalOptions="FillAndExpand"
+                   TextChanged="OnCustoParticipanteTextChanged"
+                   Text="{Binding CustoParticipante}" />
+        </Frame>
+
+        <Frame Padding="10">
+            <VerticalStackLayout>
+                <Grid RowDefinitions="Auto, Auto, Auto"
+                      ColumnDefinitions="*,*,*">
+
+                    <Label Grid.Row="0" Grid.Column="0"
+                           Text="Quantidade de participantes:"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"/>
+
+                    <Label Grid.Row="0" Grid.Column="1"
+                           TextColor="{StaticResource Primary}"
+                           Text="{Binding NumeroParticipantes}"
+                           FontSize="20"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"/>
+
+                    <Stepper Grid.Row="0" Grid.Column="2"
+                             x:Name="stp_participantes"
+                             Minimum="1"
+                             Maximum="100"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center"
+                             ValueChanged="OnStepperValueChanged"/>
+                </Grid>
+
+                <Frame Padding="10"
+                       Margin="20"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center">
+                    <VerticalStackLayout>
+                        <Label Text="Data do Evento:"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"/>
+
+                        <Label Text="Início:"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"/>
+                        <DatePicker x:Name="dtpck_inicio" 
+                                    Format="dd/MM/yyyy"
+                                    MinimumDate="{Binding DataInicioMinima}"
+                                    Date="{Binding DataInicio}"
+                                    DateSelected="OnDataInicioChanged"/>
+
+                   
+                        <Label Text="Fim:"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"/>
+                        <DatePicker x:Name="dtpck_fim" 
+                                    Format="dd/MM/yyyy"
+                                    MinimumDate="{Binding DataInicio}"
+                                    MaximumDate="{Binding DataFimMaxima}"
+                                    Date="{Binding DataFim}"
+                                    DateSelected="OnDataFimChanged"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Button Text="Avançar" Clicked="Button_Clicked"/>
+            </VerticalStackLayout>
+        </Frame>
+
+    </VerticalStackLayout>
+</ContentPage>
